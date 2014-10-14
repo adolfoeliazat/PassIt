@@ -1,0 +1,2 @@
+module SpageHelper
+end
