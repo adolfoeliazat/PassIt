@@ -1,4 +1,4 @@
-![g3820.png](https://bitbucket.org/repo/onxqB9/images/701863832-g3820.png)
+![PassItpurpVerySmall.png](https://bitbucket.org/repo/onxqB9/images/3853414182-PassItpurpVerySmall.png)
 
 # PassIt #
 
