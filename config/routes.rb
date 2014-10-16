@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   root to: "spage#welcome"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  # get 'items/index_user' => 'items#index_user'
 
   # You can have the root of your site routed with "root"
   # root 'items#index'

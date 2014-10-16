@@ -4,7 +4,13 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    #@items = Item.all
+    @items = Item.where(:owner_id => current_user.id)
+    @items1 = Item.all
+  end
+
+  def index_user
+
   end
 
   # GET /items/1
@@ -24,8 +30,8 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(item_params)
-
+     @item = Item.new(item_params)
+   @item.owner_id= current_user.id
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
