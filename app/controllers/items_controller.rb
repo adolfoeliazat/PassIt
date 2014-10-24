@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
+    @categories = Category.all
      @item = Item.new(item_params)
    @item.owner_id= current_user.id
     respond_to do |format|
