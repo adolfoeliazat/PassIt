@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     #@items = Item.all
-    @items = Item.where(:owner_id => current_user.id)
+    @items = Item.where(:user_id => current_user.id)
     @items1 = Item.all
   end
 
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
   def create
     @categories = Category.all
      @item = Item.new(item_params)
-   @item.owner_id= current_user.id
+   @item.user_id= current_user.id
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
@@ -76,6 +76,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :image, :price, :keywords, :category_id, :owner_id)
+      params.require(:item).permit(:name, :description, :image, :price, :keywords, :category_id, :user_id)
     end
 end
