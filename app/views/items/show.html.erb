@@ -18,6 +18,8 @@
   <dd><%= @item.category_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:owner_id) %>:</strong></dt>
   <dd><%= @item.owner_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:availability) %>:</strong></dt>
+  <dd><%= @item.availability %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
