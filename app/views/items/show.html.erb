@@ -11,7 +11,7 @@
   <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
   <dd><%= @item.image %></dd>
   <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
-  <dd><%= @item.price %></dd>
+  <dd><%= number_to_currency(@item.price) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:keywords) %>:</strong></dt>
   <dd><%= @item.keywords %></dd>
   <dt><strong><%= model_class.human_attribute_name(:category_id) %>:</strong></dt>
@@ -24,6 +24,13 @@
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               items_path, :class => 'btn btn-default'  %>
+
+<%= link_to 'Send an Offer',
+            items_path, :class => 'btn btn-success'  %>
+<% if(@item.availability == "Available") %>
+    <%= link_to 'Rent Now',
+                items_path, :class => 'btn btn-primary'  %>
+<% end %>
 <!--%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_item_path(@item), :class => 'btn btn-default' %--!>
 <!--%= link_to t('.destroy', :default => t("helpers.links.destroy")),

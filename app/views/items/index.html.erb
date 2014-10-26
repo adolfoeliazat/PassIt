@@ -24,11 +24,11 @@
         <td><%= item.name %></td>
         <td><%= item.description %></td>
         <td><%= item.image %></td>
-        <td><%= item.price %></td>
+        <td><%= number_to_currency(item.price) %></td>
         <td><%= item.keywords %></td>
         <td><%= item.category_id %></td>
         <!--<td><%= item.user_id %></td>-->
-        <td><%=l item.created_at %></td>
+        <td><%= time_ago_in_words(item.created_at) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_item_path(item), :class => 'btn btn-default btn-xs' %>
@@ -74,11 +74,11 @@
         <td><%= item.name %></td>
         <td><%= item.description %></td>
         <td><%= item.image %></td>
-        <td><%= item.price %></td>
+        <td><%= number_to_currency(item.price) %></td>
         <td><%= item.keywords %></td>
         <td><%= item.category_id %></td>
         <td><%= item.user_id %></td>
-        <td><%= item.created_at %></td>
+        <td><%= time_ago_in_words(item.created_at) %></td>
         <td><%= item.availability %></td>
       </tr>
   <% end %>
