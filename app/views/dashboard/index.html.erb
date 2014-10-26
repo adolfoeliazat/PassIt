@@ -1,0 +1,152 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="well">
+        <div class="well" style="float: left;">
+          <img src="https://secure.gravatar.com/avatar/de9b11d0f9c0569ba917393ed5e5b3ab?s=140&r=g&d=mm" class="img-circle">
+        </div>
+        <div class="well" style="">
+          <h1 style="text-align: left; margin-left: 15px;">Welcome <%= current_user.username %></h1>
+          <h6 style="text-align: left; margin-left: 15px;">Email: <%= current_user.email %></h6>
+          <h6 style="text-align: left; margin-left: 15px;">Phone: <%= current_user.phone %></h6>
+          <h6 style="text-align: left; margin-left: 15px;">Address: <%= current_user.address %></h6>
+          <h6 style="text-align: left; margin-left: 15px;">Signin count: <%= current_user.sign_in_count %></h6>
+          <h6 style="text-align: left; margin-left: 15px;">A member since: <%= time_ago_in_words(current_user.created_at) %></h6>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 col-md-3">
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Account</a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body" style="padding:0px;">
+              <table class="table" style="margin-bottom: 0px;">
+                <tr>
+                  <td>
+                    <%= link_to('profile', edit_user_registration_path )%>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Items</a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body" style="padding:0px;">
+              <table class="table" style="margin-bottom: 0px;">
+                <tr>
+                  <td>
+                    <%= link_to('My items', items_path )%>  <span class="label label-success">$ 320</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= link_to('New item', new_item_path )%>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="">Item schedule</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="">Item offers</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="">Item rent history</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Offers</a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body" style="padding:0px;">
+              <table class="table" style="margin-bottom: 0px;">
+                <tr>
+                  <td>
+                    <a href="">New offer</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="">Offers Notifications</a> <span class="label label-info">5</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="">offer status</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="glyphicon glyphicon-trash text-danger"></span><a href="http://www.jquery2dotnet.com" class="text-danger">
+                    Delete offer</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Rent</a>
+            </h4>
+          </div>
+          <div id="collapseFour" class="panel-collapse collapse">
+            <div class="panel-body" style="padding:0px;">
+              <table class="table" style="margin-bottom: 0px;">
+                <tr>
+                  <td>
+                    <a href="">Rented items</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="">return an item</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9 col-md-9">
+      <div class="well">
+        <h1>
+          Dashboard and Activities</h1>
+        User Dashboard Accordion Menu
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

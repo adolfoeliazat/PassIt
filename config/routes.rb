@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+
   get 'spage/welcome'
 
   get 'spage/about'

@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # the following method is to redirect the user after signin
+  def after_sign_in_path_for(resource)
+    dashboard_index_path
+  end
+
   protected
 
   def configure_permitted_parameters

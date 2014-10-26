@@ -50,7 +50,7 @@
     </div>
     <%= error_span(@item[:keywords]) %>
   </div>
-  <div class="control-group">
+  <div class="control-group" style="margin-bottom: 15px;">
     <%= f.label :category_id, :class => 'control-label' %>
     <div class="controls">
       <%= f.collection_select(:category_id, Category.all, :id, :category_name) %>

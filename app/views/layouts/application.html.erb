@@ -69,7 +69,10 @@
       <% if user_signed_in? %>
           <p class="navbar-text navbar-right">
             Welcome <%= link_to(current_user.username, edit_user_registration_path) %></p>
-      <% else %>
+          <p class="navbar-text navbar-right">
+            <%= link_to('Dashboard', dashboard_index_path) %></p>
+          <!--<span class="glyphicon glyphicon-search"></span>-->
+    <% else %>
           <% if !current_page?(new_user_registration_path) %>
           <p class="navbar-text navbar-right">
             <%= link_to('Sign up', new_user_registration_path) %></p>
