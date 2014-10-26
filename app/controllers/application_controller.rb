@@ -17,9 +17,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :username
     devise_parameter_sanitizer.for(:sign_up) << :phone
     devise_parameter_sanitizer.for(:sign_up) << :address
+    devise_parameter_sanitizer.for(:sign_up) << :latitude
+    devise_parameter_sanitizer.for(:sign_up) << :longitude
     devise_parameter_sanitizer.for(:account_update) << :username
     devise_parameter_sanitizer.for(:account_update) << :phone
     devise_parameter_sanitizer.for(:account_update) << :address
+    devise_parameter_sanitizer.for(:account_update) << :latitude
+    devise_parameter_sanitizer.for(:account_update) << :longitude
   end
 
 
