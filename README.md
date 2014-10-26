@@ -1,7 +1,5 @@
 ![PassItpurpVerySmall.png](https://bitbucket.org/repo/onxqB9/images/3853414182-PassItpurpVerySmall.png)
 
-Hassan
-
 ##The idea:##
 Do you have a drill or screwdriver at home? When was the last time you used it? You may use the drill once a year, and then it will be untouched for many years. The idea of our project is to make use of these equipment by making them available to be rented in your neighborhood. We will design a web application similar to http://streetbank.com
 
