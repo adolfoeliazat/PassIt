@@ -68,6 +68,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @categories = Category.all
+    @item = Item.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item

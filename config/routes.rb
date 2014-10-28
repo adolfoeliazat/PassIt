@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'spage/privacy'
 
+  get 'items/search'
   devise_for :users
   resources :items
   root to: "spage#welcome"
