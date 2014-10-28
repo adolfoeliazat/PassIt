@@ -17,9 +17,8 @@
       <%= f.text_field :address%></div>
     <p><br />
         <%= image_tag ("https://maps.googleapis.com/maps/api/staticmap?size=300x300&maptype=roadmap
-        &markers=color:red%7Clabel:C%7C#{resource.latitude},#{resource.longitude}") %>
+        &markers=color:red%7Clabel:A%7C#{resource.latitude},#{resource.longitude}") %>
     </p>
-
 
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
