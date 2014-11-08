@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_id_id: 
+  user_id_id: 
+  fromDate: 2014-11-07
+  toDate: 2014-11-07
+  description: MyText
+  price: 9.99
+
+two:
+  item_id_id: 
+  user_id_id: 
+  fromDate: 2014-11-07
+  toDate: 2014-11-07
+  description: MyText
+  price: 9.99

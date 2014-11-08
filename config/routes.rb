@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :item_requests
+
   get 'dashboard/index'
 
   get 'spage/welcome'
@@ -12,6 +14,9 @@ Rails.application.routes.draw do
   get 'spage/privacy'
 
   get 'items/search'
+
+  get 'items/rentnow'
+  #get 'item_requests/rentnow'
   devise_for :users
   resources :items
   root to: "spage#welcome"

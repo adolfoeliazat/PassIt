@@ -29,7 +29,9 @@
             items_path, :class => 'btn btn-success'  %>
 <% if(@item.availability == "Available") %>
     <%= link_to 'Rent Now',
-                items_path, :class => 'btn btn-primary'  %>
+                items_rentnow_path(:item => @item.id),
+               #item_requests_rentnow_path(@item),
+               :class => 'btn btn-primary'  %>
 <% end %>
 <!--%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_item_path(@item), :class => 'btn btn-default' %--!>

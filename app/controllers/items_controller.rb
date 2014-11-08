@@ -13,6 +13,22 @@ class ItemsController < ApplicationController
 
   end
 
+
+  def rentnow
+   # @itemrent = Item.find(params[:item])
+   #
+   # @item_request = ItemRequest.new
+   # @item_request.item_id = params[:item]
+   # @item_request.user_id = @itemrent.user.id
+   # @item_request.save
+    session[:current_item_id] = params[:item]
+
+    redirect_to(controller: "item_requests", action:"new")
+  end
+
+  def new_request
+
+  end
   # GET /items/1
   # GET /items/1.json
   def show

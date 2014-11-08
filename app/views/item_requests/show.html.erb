@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @item_request.item_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @item_request.user_id %>
+</p>
+
+<p>
+  <strong>Fromdate:</strong>
+  <%= @item_request.fromDate %>
+</p>
+
+<p>
+  <strong>Todate:</strong>
+  <%= @item_request.toDate %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item_request.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @item_request.price %>
+</p>
+
+<%= link_to 'Edit', edit_item_request_path(@item_request) %> |
+<%= link_to 'Back', item_requests_path %>

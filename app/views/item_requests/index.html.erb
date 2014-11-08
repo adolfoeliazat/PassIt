@@ -1,0 +1,35 @@
+<h1>Listing item_requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>User</th>
+      <th>Fromdate</th>
+      <th>Todate</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @item_requests.each do |item_request| %>
+      <tr>
+        <td><%= item_request.item_id %></td>
+        <td><%= item_request.user_id %></td>
+        <td><%= item_request.fromDate %></td>
+        <td><%= item_request.toDate %></td>
+        <td><%= item_request.description %></td>
+        <td><%= item_request.price %></td>
+        <td><%= link_to 'Show', item_request %></td>
+        <td><%= link_to 'Edit', edit_item_request_path(item_request) %></td>
+        <td><%= link_to 'Destroy', item_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item request', new_item_request_path %>
