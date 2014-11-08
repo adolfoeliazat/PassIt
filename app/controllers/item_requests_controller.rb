@@ -29,10 +29,24 @@ class ItemRequestsController < ApplicationController
 
   def create
     @item_request = ItemRequest.new(item_request_params)
-    @item_request.save
+    item = Item. find(@item_request.item_id)
+    @item_request.price = (@item_request.toDate - @item_request.fromDate).to_i * item.price
+    item.availability="Requested"
+    item.save
+
+    respond_to do |format|
+      if @item_request.save
+        format.html { redirect_to items_search_path, notice: 'A message has been sent to the
+                        owner. You will receive email when the owner responds.' }
+        #format.json { render :show, status: :created, location: @item }
+      else
+        format.html { redirect_to items_search_path, notice: 'Item was not created.' }
+        #format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
     #respond_with(@item_request)
-    #render text: "Message sent to owner", type: :builder
-    redirect_to(controller: "items", action:"search")
+    #render action: "display.html.erb"
+    #redirect_to(controller: "items", action:"search")
   end
 
   def update
@@ -51,6 +65,6 @@ class ItemRequestsController < ApplicationController
     end
 
     def item_request_params
-      params.require(:item_request).permit(:item_id_id, :user_id_id, :fromDate, :toDate, :description, :price)
+      params.require(:item_request).permit(:item_id, :user_id, :fromDate, :toDate, :description, :price)
     end
 end

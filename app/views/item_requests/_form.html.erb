@@ -13,16 +13,12 @@
 
     <%= @itemname %>
     <%= @itemprice %>
+    <%= @item_request.item_id%>
 
-    <div class="field">
-    <%= f.label :item_id %><br>
-    <%= f.text_field :item_id %>
 
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
+    <%= f.hidden_field :item_id, {:value => @item_request.item_id} %>
+    <%= f.hidden_field :user_id, {:value => @item_request.user_id} %>
+
   <div class="field">
     <%= f.label :fromDate %><br>
     <%= f.date_select :fromDate %>
