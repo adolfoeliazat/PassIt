@@ -4,8 +4,20 @@ class ItemRequestsController < ApplicationController
 
   def index
     @item_requests = ItemRequest.all
+
+
+    # To find the items which the user has requested(borrow)
+    user = current_user.id
+    @item_requestborrowers = ItemRequest.where(user_id: user)
+    #@items2=Item.where(id: @item_requestborrower)
+
+    # to find the items which has a request(owner)
+    owneditems=Item.find_by_user_id(user)
+    @item_requestowners=ItemRequest.where(item_id: owneditems.id)
     #respond_with(@item_requests)
   end
+
+
 
   def show
     #respond_with(@item_request)
