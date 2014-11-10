@@ -1,0 +1,33 @@
+toolbar:
+  - copy cut paste | | bold italic underline | undo redo
+  - image | link | hr | table | media
+plugins:
+
+  - fullpage
+  - fullscreen
+  - hr
+  - image
+  - insertdatetime
+  - layer
+  - legacyoutput
+  - link
+  - lists
+  - importcss
+  - media
+  - nonbreaking
+  - noneditable
+  - pagebreak
+  - paste
+  - preview
+  - save
+  - searchreplace
+  - spellchecker
+  - tabfocus
+  - table
+  - textcolor
+  - textpattern
+  - visualblocks
+  - visualchars
+  - wordcount
+  - contextmenu
+  - colorpicker
