@@ -63,7 +63,7 @@ body {color: #888;}
       <a class="pull-left" href="#" target="_parent" style="margin: 0; color: #03a1d1;
               text-decoration: none!important;">
        <!-- <img style="max-width: 180px;" alt="hassan" class="img-responsive" src=""> -->
-        <%= image_tag i.image_url.to_s, size: "200x200" %></a>
+        <%= image_tag i.image_url.to_s, size: "150x150" %></a>
 
       <div class="clearfix visible-sm"></div>
 
@@ -73,7 +73,7 @@ body {color: #888;}
 
         <h4 class="media-heading">
           <a href="#" target="_parent" style="margin: 0; color: #03a1d1;
-                  text-decoration: none!important;"><%= link_to i.name, item_path(i) %><small class="pull-right"><%= number_to_currency(i.price)  %></small></a></h4>
+                  text-decoration: none!important;"><%= link_to i.name.first(39), item_path(i) %><small class="pull-right"><%= number_to_currency(i.price)  %></small></a></h4>
 
 
         <ul class="list-inline mrg-0 btm-mrg-10 clr-535353" style="color: #535353; padding: 0 10px 0 0; margin: 0!important; margin-bottom: 10px!important;">
@@ -82,7 +82,7 @@ body {color: #888;}
           <li style="padding: 0 10px 0 0;"><%= i.keywords %></li>
         </ul>
 
-        <p class="hidden-xs"><%= i.description.html_safe %></p>
+        <p class="hidden-xs"><%= (sanitize strip_tags(i.description), tags: %w(p)).last((sanitize strip_tags(i.description), tags: %w(p)).length-18).first(168) %></p>
         <span class="fnt-smaller fnt-lighter fnt-arial" style="color: #bbb; font-size: .9em;"><%= i.category_id %></span>
       </div>
     </div>
