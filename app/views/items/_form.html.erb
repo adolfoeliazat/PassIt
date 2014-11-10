@@ -24,9 +24,10 @@
   </div>
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, :class => 'form-control' %>
-    </div>
+    <!-- <div class="controls"> -->
+      <%#= f.text_area :description, :class => 'form-control' %>
+      <%= f.text_area :description, :class => "tinymce", :rows => 40, :cols => 80 %>
+    <!-- </div> -->
     <%= error_span(@item[:description]) %>
   </div>
   <div class="control-group">
@@ -73,3 +74,4 @@
             items_path, :class => 'btn btn-default' %>
 
 <% end %>
+<%= tinymce %>

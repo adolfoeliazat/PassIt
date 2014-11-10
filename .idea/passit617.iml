@@ -234,6 +234,7 @@
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.19.1, ruby-2.0.0-p451) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.4, ruby-2.0.0-p451) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tilt (v1.4.1, ruby-2.0.0-p451) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tinymce-rails (v4.1.6, ruby-2.0.0-p451) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="treetop (v1.4.15, ruby-2.0.0-p451) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="turbolinks (v2.4.0, ruby-2.0.0-p451) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="twitter-bootstrap-rails (v3.2.0, ruby-2.0.0-p451) [gem]" level="application" />

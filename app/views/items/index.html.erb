@@ -22,7 +22,7 @@
       <tr>
         <td><%= link_to item.id, item_path(item) %></td>
         <td><%= item.name %></td>
-        <td><%= item.description %></td>
+        <td><%= item.description.html_safe %></td>
         <td><%= image_tag item.image_url.to_s, size: "200x200" %></td>
         <td><%= number_to_currency(item.price) %></td>
         <td><%= item.keywords %></td>
@@ -72,7 +72,7 @@
       <tr>
         <td><%= link_to item.id, item_path(item) %></td>
         <td><%= item.name %></td>
-        <td><%= item.description %></td>
+        <td><%= item.description.html_safe %></td>
         <td><%= image_tag item.image_url.to_s, size: "200x200" %></td>
         <td><%= number_to_currency(item.price) %></td>
         <td><%= item.keywords %></td>

@@ -33,6 +33,8 @@ gem 'geocoder'
 
 gem 'carrierwave'
 
+gem 'tinymce-rails'
+
 # gem 'rmagick'
 
 # Use ActiveModel has_secure_password

@@ -7,7 +7,7 @@
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @item.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @item.description %></dd>
+  <dd><%= @item.description.html_safe %></dd>
   <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
   <dd><%= image_tag @item.image_url.to_s, size: "200x200" %></dd>
   <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
