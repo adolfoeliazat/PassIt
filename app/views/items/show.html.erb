@@ -9,7 +9,7 @@
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @item.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
-  <dd><%= image_tag @item.image_url.to_s %></dd>
+  <dd><%= image_tag @item.image_url.to_s, size: "200x200" %></dd>
   <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
   <dd><%= number_to_currency(@item.price) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:keywords) %>:</strong></dt>
