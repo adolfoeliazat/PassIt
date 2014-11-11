@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
 
   end
 
-
   def rentnow
    # @itemrent = Item.find(params[:item])
    #
@@ -85,7 +84,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @categories = Category.all
+    #@categories = Category.all
 
     if params[:search]
       @item = Item.where('name like ? AND user_id != ?', "%#{params[:search]}%", current_user.id)
