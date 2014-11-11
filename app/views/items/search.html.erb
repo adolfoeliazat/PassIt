@@ -82,7 +82,7 @@ body {color: #888;}
           <li style="padding: 0 10px 0 0;"><%= i.keywords %></li>
         </ul>
 
-        <p class="hidden-xs"><%= (sanitize strip_tags(i.description), tags: %w(p)).last((sanitize strip_tags(i.description), tags: %w(p)).length-18).first(168) %></p>
+        <p class="hidden-xs"><%= (sanitize strip_tags(i.description), tags: %w(p)).last((sanitize strip_tags(i.description), tags: %w(p)).length-18).first(124) %></p>
         <span class="fnt-smaller fnt-lighter fnt-arial" style="color: #bbb; font-size: .9em;"><%= i.category_id %></span>
       </div>
     </div>
