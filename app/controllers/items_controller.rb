@@ -86,7 +86,13 @@ class ItemsController < ApplicationController
 
   def search
     @categories = Category.all
-    @item = Item.all
+
+    if params[:search]
+      @item = Item.where('name like ? AND user_id != ?', "%#{params[:search]}%", current_user.id)
+    else
+      @item = Item.where('user_id != ?',current_user.id)
+    end
+
   end
 
   private
