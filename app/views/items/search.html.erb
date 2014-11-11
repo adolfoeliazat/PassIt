@@ -22,6 +22,10 @@ body {color: #888;}
         </div>
         <input type="hidden" name="search_param" value="all" id="search_param">
         <input type="text" class="form-control" name="x" placeholder="Search term...">
+        <%= form_tag items_search_path, :method => 'get' do %>
+            <%= text_field_tag :search, params[:search], :class => 'form-control' , :placeholder => 'Type your item here'%>
+            <%= submit_tag 'Search', :name => nil, :class => 'btn btn-default'  %>
+        <% end %>
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
