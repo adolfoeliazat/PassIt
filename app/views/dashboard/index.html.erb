@@ -67,7 +67,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <a href="">Item offers</a>
+                    <a href="">linkItem offers</a>
                   </td>
                 </tr>
                 <tr>
@@ -90,17 +90,22 @@
               <table class="table" style="margin-bottom: 0px;">
                 <tr>
                   <td>
-                    <a href="">New offer</a>
+                    <%= link_to "All Offers", :controller=>:item_requests, :action => :offerindex %>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <a href="">Offers Notifications</a> <span class="label label-info">5</span>
+                    <%= link_to "Pending Offers", :controller=>:item_requests, :action => :pendingofferindex %>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <a href="">offer status</a>
+                    <%= link_to "All Requests", :controller=>:item_requests, :action => :requestindex %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= link_to "Pending Requests", :controller=>:item_requests, :action => :pendingrequestindex %>
                   </td>
                 </tr>
                 <tr>

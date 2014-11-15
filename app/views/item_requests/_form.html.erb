@@ -14,36 +14,30 @@
       </div>
     </div>
   <% end %>
+    Item Name:<%= @itemname %>
+    <%= image_tag @itemimage.to_s, size: "300x300" %>
+    Item Price:<%= @itemprice %>/day
 
-  <div class="control-group">
-    <%= f.label :item_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :item_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@item_request[:item_id]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :user_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :user_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@item_request[:user_id]) %>
-  </div>
+    <%= f.hidden_field :item_id, {:value => @item_request.item_id} %>
+    <%= f.hidden_field :user_id, {:value => @item_request.user_id} %>
+
+
   <div class="control-group">
     <%= f.label :fromDate, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :fromDate, :class => 'form-control' %>
+      <%= f.date_select :fromDate, :class => 'form-control' %>
     </div>
     <%= error_span(@item_request[:fromDate]) %>
   </div>
   <div class="control-group">
     <%= f.label :toDate, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :toDate, :class => 'form-control' %>
+      <%= f.date_select :toDate, :class => 'form-control' %>
     </div>
     <%= error_span(@item_request[:toDate]) %>
   </div>
   <div class="control-group">
+    <b>Message to owner</b>
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :description, :class => 'form-control' %>
@@ -61,6 +55,6 @@
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            item_requests_path, :class => 'btn btn-default' %>
+            items_search_path, :class => 'btn btn-default' %>
 
 <% end %>

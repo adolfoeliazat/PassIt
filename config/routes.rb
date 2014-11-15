@@ -16,7 +16,18 @@ Rails.application.routes.draw do
   get 'items/search'
 
   get 'items/rentnow'
-  #get 'item_requests/rentnow'
+
+  get 'acceptoffer/:id' => 'item_requests#acceptoffer'
+  get 'rejectoffer/:id' => 'item_requests#rejectoffer'
+  get 'userofferindex' =>'item_requests#offerindex'
+  get 'userrequestindex' => 'item_requests#requestindex'
+  get 'pendingrequestindex' => 'item_requests#pendingrequestindex'
+  get 'acceptrequestindex' => 'item_requests#acceptrequestindex'
+  get 'rejectrequestindex' => 'item_requests#rejectrequestindex'
+  get 'pendingofferindex' => 'item_requests#pendingofferindex'
+  get 'acceptofferindex' => 'item_requests#acceptofferindex'
+  get 'rejectofferindex' => 'item_requests#rejectofferindex'
+
   devise_for :users
   resources :items
   root to: "spage#welcome"

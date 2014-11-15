@@ -28,18 +28,20 @@
               <div class="buttom" style="margin: auto; margin-right: 5px;">
                 <div class="col-md-5" style="float: left; margin: 2px 2px 2px 2px;">
                   <div class="product-price" style="font-size: 22px;"> <%= number_to_currency(@item.price) %> </div>
-                  <div class="product-stock" style="color: #449D44; font-size: 20px; margin-top: 10px;"><%= @item.availability %></div>
+                  <!--div class="product-stock" style="color: #449D44; font-size: 20px; margin-top: 10px;"-->
+                  <!--%= @item.availability %-->
+                    <!--/div-->
                 </div>
                 <div class="col-md-4" style="float: left; margin: auto;">
-                  <% if (@item.availability == "Available") %>
-                      <%= link_to 'Rent Now',
+                  <!--% if (@item.availability == "Available") %-->
+                      <%= link_to 'Request',
                                   items_rentnow_path(:item => @item.id),
                                   #item_requests_rentnow_path(@item),
                                   :class => 'btn btn-primary', :style => 'margin: 2px 2px 2px 2px; width: 85px;' %>
-                  <% end %>
-                  <button type="button" class="btn btn-danger" style="margin: 2px 2px 2px 2px; width: 85px;">
+                  <!--% end %-->
+                  <!--button type="button" class="btn btn-danger" style="margin: 2px 2px 2px 2px; width: 85px;">
                     Make Offer
-                  </button>
+                  </button-->
                 </div>
                 <br><br><br>
               </div>
