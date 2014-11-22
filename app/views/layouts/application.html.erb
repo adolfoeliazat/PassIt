@@ -61,7 +61,7 @@
               <%  if current_user.avatar_url.present? %>
                   <%= link_to image_tag(current_user.avatar_url.to_s, :size => "40x40", :title=>"Dashboard"), dashboard_index_path, {:class => 'navbar-brand', :style => 'margin-left: 0px; text-align: center; float: none; padding: 5px 5px 5px 5px;'} %>
               <% else %>
-                  <img src="https://lh5.googleusercontent.com/-XZTV9ous-Tw/AAAAAAAAAAI/AAAAAAAAAAA/hQkSiISMA0o/photo.jpg" class="navbar-brand" size="40x40">
+                  <%= link_to image_tag("https://lh5.googleusercontent.com/-XZTV9ous-Tw/AAAAAAAAAAI/AAAAAAAAAAA/hQkSiISMA0o/photo.jpg", :size => "40x40", :title=>"Dashboard"), dashboard_index_path, {:class => 'navbar-brand', :style => 'margin-left: 0px; text-align: center; float: none; padding: 5px 5px 5px 5px;'} %>
               <% end %>
             </li>
 
