@@ -1,12 +1,16 @@
-<div class="container">
+<div class="container" style="padding-top: 10px;">
   <div class="row">
     <div class="col-sm-12 col-md-12">
       <div class="well">
         <div class="well" style="float: left; border: 0px;">
-          <img src="https://lh5.googleusercontent.com/-XZTV9ous-Tw/AAAAAAAAAAI/AAAAAAAAAAA/hQkSiISMA0o/photo.jpg" class="img-circle" width="184px">
+          <% if current_user.avatar_url.present? %>
+              <span style=""> <%= image_tag current_user.avatar_url.to_s, width: "184px", class: "img-circle" %></span>
+          <% else %>
+              <img src="https://lh5.googleusercontent.com/-XZTV9ous-Tw/AAAAAAAAAAI/AAAAAAAAAAA/hQkSiISMA0o/photo.jpg" class="img-circle" width="184px">
+          <% end %>
         </div>
         <div class="well" style="border: 0px;">
-          <h1 style="text-align: left; margin-left: 15px;">Welcome <%= current_user.username %></h1>
+          <h1 style="text-align: left; margin-left: 15px;">Welcome <%= current_user.first_name %></h1>
           <h6 style="text-align: left; margin-left: 15px;">Email: <%= current_user.email %></h6>
           <h6 style="text-align: left; margin-left: 15px;">Phone: <%= current_user.phone %></h6>
           <h6 style="text-align: left; margin-left: 15px;">Address: <%= current_user.address %></h6>

@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   has_many :items, dependent: :destroy
   has_many :item_requests, dependent: :destroy
 
+  mount_uploader :avatar, AvatarUploader
 end
