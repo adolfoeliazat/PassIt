@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 20141122034656) do
     t.string   "availability", default: "Available"
   end
 
+  create_table "reviews", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "username",               default: "", null: false
     t.string   "email",                  default: "", null: false

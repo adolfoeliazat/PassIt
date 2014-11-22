@@ -69,6 +69,14 @@
         </section>
       </div>
       <div class="tab-pane fade" id="service-three">
+        <section class="container product-info" style="margin-top: 20px; margin-right: 10px; margin-left: 10px;   padding-left: 10px; padding-right: 10px; max-width: 98%;">
+          <% @results = Review.where(:item_id => @item.id) %>
+
+          <%  @results.each do |r| %>
+              <%= r.try(:body)  %><br />
+          <% end %>
+
+        </section>
       </div>
     </div>
     <hr>
