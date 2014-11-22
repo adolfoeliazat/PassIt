@@ -10,7 +10,7 @@
           <% end %>
         </div>
         <div class="well" style="border: 0px;">
-          <h1 style="text-align: left; margin-left: 15px;">Welcome <%= current_user.first_name %></h1>
+          <h1 style="text-align: left; margin-left: 15px;">Welcome <%= current_user.first_name %> <%= current_user.last_name %></h1>
           <h6 style="text-align: left; margin-left: 15px;">Email: <%= current_user.email %></h6>
           <h6 style="text-align: left; margin-left: 15px;">Phone: <%= current_user.phone %></h6>
           <h6 style="text-align: left; margin-left: 15px;">Address: <%= current_user.address %></h6>
