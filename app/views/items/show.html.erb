@@ -73,8 +73,17 @@
           <% @results = Review.where(:item_id => @item.id) %>
 
           <%  @results.each do |r| %>
-              <%= r.try(:body)  %><br />
+              <%= r.try(:body)  %><br /><hr />
           <% end %>
+          <h3>Add Review</h3>
+         <p>
+           <%= form_tag('/reviews/create') %>
+           <%= hidden_field_tag 'item_id', value = @item.id %>
+           <%= text_area_tag 'body' %>
+           <br />
+           <%= submit_tag 'Add' %>
+         </p>
+
 
         </section>
       </div>
