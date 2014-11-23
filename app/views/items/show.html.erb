@@ -75,6 +75,7 @@
           <%  @results.each do |r| %>
               <%= r.try(:body)  %><br /><hr />
           <% end %>
+       <% if @item.user_id != current_user.id %>
           <h3>Add Review</h3>
          <p>
            <%= form_tag('/reviews/create') %>
@@ -83,7 +84,7 @@
            <br />
            <%= submit_tag 'Add' %>
          </p>
-
+        <% end %>
 
         </section>
       </div>
