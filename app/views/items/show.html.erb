@@ -73,7 +73,8 @@
           <% @results = Review.where(:item_id => @item.id) %>
 
           <%  @results.each do |r| %>
-              Posted by <b><%= current_user.username %></b> since <%= time_ago_in_words(r.created_at) %><br />
+              <% @user = User.where(:id => r.user_id).first %>
+              Posted by <b><%= @user.username  %></b> since <%= time_ago_in_words(r.created_at) %><br />
               <%= r.try(:body)  %><br /><hr />
           <% end %>
        <% if @item.user_id != current_user.id %>

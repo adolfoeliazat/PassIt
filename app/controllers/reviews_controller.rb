@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to items_url, notice: 'Your review has been successfully posted.'
     else
-      redirect_to items_url, alert: 'Please type your review first.'
+      redirect_to items_url, alert: 'An error has occurred.'
     end
   end
 
