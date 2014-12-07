@@ -85,15 +85,15 @@ class ItemsController < ApplicationController
 
   def search
     #@categories = Category.all
-    #cu = User.find(current_user.id)
+    cu = User.find(current_user.id)
     #cu = cu.select("id, address, latitude, longitude")
-    #@nu = User.near(cu.address, 3000)
+    @nu = User.near(cu.address, 100)
     #collection_select(:item, :user_id, User.all, :id)
     #@item = Item.joins(User).where(User.near(current_user.id, 50))
     if params[:search].present?
-      @item = Item.where('name like ? AND user_id != ?', "%#{params[:search]}%", current_user.id)
+      @item = Item.where('name like ? AND user_id IN (?) AND user_id != ?', "%#{params[:search]}%", @nu.each do |t| t.id end, current_user.id)
     else
-      @item = Item.where('user_id != ?', current_user.id)
+      @item = Item.where('user_id IN (?) AND user_id != ?',  @nu.each do |t| t.id end, current_user.id)
     end
 
   end
