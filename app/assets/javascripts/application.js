@@ -15,4 +15,6 @@
 //= require twitter/bootstrap
 //= require tinymce-jquery
 //= require turbolinks
+//= require underscore
+//= require gmaps_google
 //= require_tree .

@@ -13,8 +13,4 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  def near_by_id
-    @users = User.near(:address)
-  end
-
 end

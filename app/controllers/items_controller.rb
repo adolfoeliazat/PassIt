@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+
   # GET /items
   # GET /items.json
   def index
@@ -84,18 +85,46 @@ class ItemsController < ApplicationController
   end
 
   def search
-    #@categories = Category.all
     cu = User.find(current_user.id)
-    #cu = cu.select("id, address, latitude, longitude")
     @nu = User.near(cu.address, 100)
-    #collection_select(:item, :user_id, User.all, :id)
-    #@item = Item.joins(User).where(User.near(current_user.id, 50))
+    @item = Item.where('user_id IN (?) AND user_id != ?',  @nu.each do |t| t.id end, current_user.id)
+=begin
+    @hash = Gmaps4rails.build_markers(User.where('id IN (?)', @item.each do |t| t.user_id end)) do |user, marker|
+                                        marker.lat user.latitude
+                                        marker.lng user.longitude
+                                      end
+=end
     if params[:search].present?
       @item = Item.where('name like ? AND user_id IN (?) AND user_id != ?', "%#{params[:search]}%", @nu.each do |t| t.id end, current_user.id)
+      #@item = Item.all(:joins => :users, :select => "items.*, users.address as address, users.latitude as latitude, users.longitude as longitude", :group => "users.id")
+      #all_items = @item
+
     else
       @item = Item.where('user_id IN (?) AND user_id != ?',  @nu.each do |t| t.id end, current_user.id)
+      #@item = Item.joins(:user)
+      #all_items = @item
     end
 
+
+    #@tomark = User.where('id IN (?)', @nu.each do |t| t.id end)
+    @hash = Gmaps4rails.build_markers(@item) do |i, marker|
+      marker.lat i.user.latitude
+      marker.lng i.user.longitude
+      marker.infowindow i.description
+    end
+    @hash += Gmaps4rails.build_markers(User.find(current_user.id)) do |i, marker|
+      marker.lat i.latitude
+      marker.lng i.longitude
+      marker.infowindow(i.first_name+" "+i.last_name+" current address")
+      marker.picture([i.avatar_url.to_s, :size =>'32x32'])
+    end
+=begin
+    @tomark = User.where('id IN (?)', @nu.each do |t| t.id end)
+    @hash = Gmaps4rails.build_markers(@tomark) do |user, marker|
+        marker.lat user.latitude
+        marker.lng user.longitude
+      end
+=end
   end
 
   private
