@@ -22,9 +22,9 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.body = params[:body]
     if @review.save
-      redirect_to items_url, notice: 'Your review has been successfully posted.'
+      redirect_to :back, notice: 'Your review has been successfully posted.'
     else
-      redirect_to items_url, alert: 'An error has occurred.'
+      redirect_to :back, alert: 'An error has occurred.'
     end
   end
 

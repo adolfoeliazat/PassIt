@@ -9,6 +9,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :items, dependent: :destroy
   has_many :item_requests, dependent: :destroy
+  has_many :reviews, dependent: :delete_all
 
   mount_uploader :avatar, AvatarUploader
+
+  def near_by_id
+    @users = User.near(:address)
+  end
+
 end
