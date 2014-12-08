@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get 'acceptofferindex' => 'item_requests#acceptofferindex'
   get 'rejectofferindex' => 'item_requests#rejectofferindex'
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => 'omniauth_callbacks' }
   resources :items
   post 'reviews/create'
   root to: 'spage#welcome'

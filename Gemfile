@@ -36,6 +36,8 @@ gem 'carrierwave'
 
 gem 'tinymce-rails'
 
+gem 'omniauth-facebook'
+
 # gem 'rmagick'
 
 # Use ActiveModel has_secure_password
