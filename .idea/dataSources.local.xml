@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="Rails passit617: development" uuid="558f3c7b-a763-499a-b07b-8ce3da983b71" />
-    <data-source name="Rails Lab5_devisegem: development" uuid="248fd3e3-db93-49a0-9c82-d421d4390be5" />
+    <data-source name="Rails passit617: development" uuid="558f3c7b-a763-499a-b07b-8ce3da983b71">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+    <data-source name="Rails Lab5_devisegem: development" uuid="248fd3e3-db93-49a0-9c82-d421d4390be5">
+      <secret-storage>memory</secret-storage>
+    </data-source>
   </component>
 </project>
