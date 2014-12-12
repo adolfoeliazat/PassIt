@@ -84,6 +84,8 @@ class ItemRequestsController < ApplicationController
     @itemimage =Item.find(@currentitem).image
     @itemprice = Item.find(@currentitem).price
     @item_request = ItemRequest.new
+    @dates = ItemRequest.where(['item_id == ? AND toDate > ? AND status==?',
+                                @currentitem, Date.today,"Accepted"])
     @item_request.toDate = Date.today
     @item_request.fromDate = Date.today
     @item_request.item_id = @currentitem
@@ -110,10 +112,21 @@ class ItemRequestsController < ApplicationController
  end
 
  def create
-    @item_request = ItemRequest.new(item_request_params)
-    @item_request.status = "Requested"
-    item = Item. find(@item_request.item_id)
-    @item_request.price = (@item_request.toDate - @item_request.fromDate).to_i * item.price
+   error=false
+   @item_request = ItemRequest.new(item_request_params)
+   currentitem=@item_request.item_id
+   dates = ItemRequest.where(['item_id == ? AND toDate > ? AND status==?',
+                               currentitem, Date.today,"Accepted"])
+   dates.each do |date|
+     if ((@item_request.fromDate - date.toDate) * (date.fromDate - @item_request.toDate) >= 0)
+       error=true
+     end
+   end
+
+   if (!error)
+   @item_request.status = "Requested"
+   item = Item. find(@item_request.item_id)
+   @item_request.price = (@item_request.toDate - @item_request.fromDate).to_i * item.price
     item.availability="Requested"
     item.save
 
@@ -127,6 +140,12 @@ class ItemRequestsController < ApplicationController
         #format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
+   else
+     session[:current_item_id] = currentitem
+     redirect_to(new_item_request_path, notice: "Item not available during select dates.
+                  Choose a different date")
+     end
+
     #respond_with(@item_request)
     #render action: "display.html.erb"
     #redirect_to(controller: "items", action:"search")
