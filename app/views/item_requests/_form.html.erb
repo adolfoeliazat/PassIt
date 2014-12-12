@@ -14,10 +14,59 @@
       </div>
     </div>
   <% end %>
+
+
+    <!-- required plugins -->
+    <script type="text/javascript" src="assets/javascripts/date.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+      });
+    </script>
+
+    <!-- jquery.datePicker.js -->
+
+    <script>
+        $(function() {
+            $("#item_request_fromDate").datepicker({
+                dateFormat: 'yy-mm-dd',
+                numberOfMonths: 2,
+                minDate: 0,
+                onSelect: function(selected) {
+                    $("#item_request_toDate").datepicker("option","minDate", selected)
+                }
+
+            });
+            $("#item_request_toDate").datepicker({
+                numberOfMonths: 2,
+                dateFormat: 'yy-mm-dd',
+                onSelect: function(selected) {
+                    $("#item_request_fromDate").datepicker("option","maxDate", selected)
+                    //alert(document.getElementById("item_request_toDate").value + "-"  +document.getElementById("item_request_fromDate").value);
+                    var fromDate = new Date(document.getElementById("item_request_fromDate").value);
+                    var toDate = new Date(document.getElementById("item_request_toDate").value);
+                    var timeDiff = Math.abs(fromDate.getTime() - toDate.getTime())
+                    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                    alert(document.getElementById("item_request_price").value)
+                    alert(diffDays)
+                }
+            });
+            //$("item_request_price").value
+        });
+    </script>
     Item Name:<%= @itemname %>
     <%= image_tag @itemimage.to_s, size: "300x300" %>
     Item Price:<%= @itemprice %>/day
-
+    <br> <br>
+    Item Unavailability Dates:
+    <% if !@dates %> None <%else %>
+    <% @dates.each do |item_request| %>
+        <tr>
+          From <td><%= item_request.fromDate %></td>
+          To <td><%= item_request.toDate %></td>
+        </tr>
+     <% end %>
+    <% end %>
     <%= f.hidden_field :item_id, {:value => @item_request.item_id} %>
     <%= f.hidden_field :user_id, {:value => @item_request.user_id} %>
 
@@ -25,14 +74,19 @@
   <div class="control-group">
     <%= f.label :fromDate, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_select :fromDate, :class => 'form-control' %>
+      <!--%= f.date_select :fromDate, :class => 'form-control' %-->
+      <div id="fromdate">
+
+      <%= f.text_field :fromDate, :class => 'form-control' %>
+      </div>
     </div>
     <%= error_span(@item_request[:fromDate]) %>
   </div>
   <div class="control-group">
     <%= f.label :toDate, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_select :toDate, :class => 'form-control' %>
+      <%= f.text_field :toDate, :class => 'form-control' %>
+
     </div>
     <%= error_span(@item_request[:toDate]) %>
   </div>
@@ -47,10 +101,13 @@
   <div class="control-group">
     <%= f.label :price, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :price, :class => 'form-control' %>
+      <div id="price">
+        <%= f.text_field :price, :class => 'form-control' %>
+      </div>
     </div>
     <%= error_span(@item_request[:price]) %>
   </div>
+
 
 
   <%= f.submit nil, :class => 'btn btn-primary' %>

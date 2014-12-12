@@ -115,7 +115,7 @@ class ItemsController < ApplicationController
     @hash += Gmaps4rails.build_markers(User.find(current_user.id)) do |i, marker|
       marker.lat i.latitude
       marker.lng i.longitude
-      marker.infowindow(i.first_name+" "+i.last_name+" current address")
+      #marker.infowindow(i.first_name+" "+i.last_name+" current address")
       marker.picture([i.avatar_url.to_s, :size =>'32x32'])
     end
 =begin
