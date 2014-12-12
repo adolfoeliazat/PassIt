@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   has_many :item_requests, dependent: :destroy
   has_many :reviews, dependent: :delete_all
 
+  #scope: :name, where(self.first_name + " " + self.last_name)
+
+
   mount_uploader :avatar, AvatarUploader
 
   def self.from_omniauth(auth)
