@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+
   end
 
   # GET /items/new
@@ -110,14 +111,17 @@ class ItemsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@item) do |i, marker|
       marker.lat i.user.latitude
       marker.lng i.user.longitude
-      marker.infowindow i.description
+      marker.infowindow i.description+i.name
     end
+
     @hash += Gmaps4rails.build_markers(User.find(current_user.id)) do |i, marker|
       marker.lat i.latitude
       marker.lng i.longitude
-      #marker.infowindow(i.first_name+" "+i.last_name+" current address")
-      marker.picture([i.avatar_url.to_s, :size =>'32x32'])
+      marker.infowindow i.address
+      marker.picture({"url" => 'http://icons.iconarchive.com/icons/graphicloads/100-flat/32/home-icon.png', "width" =>  32, "height" => 32})
+      #marker.picture({"url" => 'http://wiki.kerbalspaceprogram.com/w/images/thumb/1/14/Target_prograde.svg/32px-Target_prograde.svg.png', "width" =>  32, "height" => 32})
     end
+
 =begin
     @tomark = User.where('id IN (?)', @nu.each do |t| t.id end)
     @hash = Gmaps4rails.build_markers(@tomark) do |user, marker|

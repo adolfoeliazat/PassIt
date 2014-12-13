@@ -1,55 +1,56 @@
 <%= bootstrap_devise_error_messages! %>
 <div class="container">
-  <div class="form-group" style="margin-top: 10px; width: 250px; margin-left: auto; margin-right: auto;">
-    <%= render "devise/shared/facebook" %>
-  </div>
-  <div class="panel panel-default" style="margin-top: 10px; width: 250px; margin-left: auto; margin-right: auto;">
-  <div class="panel-heading">
-    <h4><%= t('.sign_up', :default => "Sign up") %></h4>
-  </div>
-  <div class="panel-body">
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
-    <div class="form-group">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name, class: "form-control" %>
+    <div class="form-group" style="margin-top: 10px; width: 250px; margin-left: auto; margin-right: auto;">
+        <%= render "devise/shared/facebook" %>
     </div>
-    <div class="form-group">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name, class: "form-control" %>
+    <div class="panel panel-default" style="margin-top: 10px; width: 250px; margin-left: auto; margin-right: auto;">
+        <div class="panel-heading">
+            <h4><%= t('.sign_up', :default => "Sign up") %></h4>
+        </div>
+        <div class="panel-body">
+            <%= form_for resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" } do |f| %>
+                <div class="form-group">
+                    <%= f.label :first_name %>
+                    <%= f.text_field :first_name, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :last_name %>
+                    <%= f.text_field :last_name, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :username %>
+                    <%= f.text_field :username, class: "form-control" %>
+                </div>
+                <div class="control-group">
+                    <%= f.label :avatar, :class => 'control-label' %>
+                    <%= f.file_field :avatar, :class => 'btn' %>
+                    <%= error_span(@user[:avatar]) %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :email %>
+                    <%= f.email_field :email, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :phone %>
+                    <%= f.phone_field :phone , class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :address %>
+                    <%= f.text_field :address , class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :password %>
+                    <%= f.password_field :password, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :password_confirmation %>
+                    <%= f.password_field :password_confirmation, class: "form-control" %>
+                </div>
+                <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary" %>
+            <% end %>
+            <div class="form-group" style="margin-top: 10px; margin-bottom: 0px;">
+                <%= render "devise/shared/links" %>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-      <%= f.label :username %>
-      <%= f.text_field :username, class: "form-control" %>
-    </div>
-    <div class="control-group">
-      <%= f.label :avatar, :class => 'control-label' %>
-      <%= f.file_field :avatar, :class => 'btn' %>
-      <%= error_span(@user[:avatar]) %>
-    </div>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: "form-control" %>
-    </div>
-    <div class="form-group">
-         <%= f.label :phone %>
-         <%= f.phone_field :phone , class: "form-control" %>
-    </div>
-    <div class="form-group">
-        <%= f.label :address %>
-        <%= f.text_field :address , class: "form-control" %>
-    </div>
-    <div class="form-group">
-            <%= f.label :password %>
-            <%= f.password_field :password, class: "form-control" %>
-    </div>
-    <div class="form-group">
-                  <%= f.label :password_confirmation %>
-                  <%= f.password_field :password_confirmation, class: "form-control" %>
-    </div>
-    <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary" %>
-    <% end %>
-    <div class="form-group" style="margin-top: 10px; margin-bottom: 0px;">
-           <%= render "devise/shared/links" %>
-    </div>
-  </div>
 </div>
