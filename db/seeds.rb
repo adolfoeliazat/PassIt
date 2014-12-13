@@ -11,8 +11,33 @@ Category.create(id: '2', category_name: 'Toys')
 Category.create(id: '3', category_name: 'Gardening Items')
 Category.create(id: '4', category_name: 'Others')
 
-#User.destroy_all
-#User.new(:id => '1', :username => 'Jack', :email => 'j@j.j', :encrypted_password => '123', :address => 'Baltimore MD', :phone => '8796543210')
+User.destroy_all
+u1 = User.new(:username => 'JackJo', :address => 'Baltimore MD', :phone => '8796543210')
+u1.first_name = "Jack"
+u1.last_name = "Jo"
+u1.email = "j@j.j"
+u1.password = "jjjjjjjj"
+u1.password_confirmation = "jjjjjjjj"
+u1.save!
+
+User.create(:username => "RosJo", :address => "212 Washington Ave Towson MD", :phone => "4339875612", :first_name => "Ros", :last_name => "Jo",:email => "r@r.r", :password => "rrrrrrrr", :password_confirmation => "rrrrrrrr")
+=begin
+u2 = User.new(:username => 'RosJo', :address => 'Towson MD', :phone => '4482134321')
+u2.first_name = "Ros"
+u2.last_name = "Jo"
+u2.email = "r@r.r"
+u2.password = "rrrrrrrr"
+u2.password_confirmation = "rrrrrrrr"
+u2.save!
+
+u3 = User.new(:username => 'qq', :address => '400 Yourk Roud Towson MD', :phone => '4433789765')
+u3.first_name = "quu"
+u3.last_name = "qnn"
+u3.email = "q@q.q"
+u3.password = "qqqqqq"
+u3.password_confirmation = "qqqqqq"
+u3.save!
+=end
 #User.new(:id => '2', :username => 'Ros', :email => 'r@r.r', :encrypted_password => '123', :address => 'Towson MD', :phone => '5461328462')
 
 Item.destroy_all
