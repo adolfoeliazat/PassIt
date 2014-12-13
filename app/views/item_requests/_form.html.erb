@@ -18,11 +18,6 @@
 
     <!-- required plugins -->
     <script type="text/javascript" src="assets/javascripts/date.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-
-      });
-    </script>
 
     <!-- jquery.datePicker.js -->
 
@@ -34,6 +29,7 @@
                 minDate: 0,
                 onSelect: function(selected) {
                     $("#item_request_toDate").datepicker("option","minDate", selected)
+                    calculatePrice();
                 }
 
             });
@@ -42,21 +38,32 @@
                 dateFormat: 'yy-mm-dd',
                 onSelect: function(selected) {
                     $("#item_request_fromDate").datepicker("option","maxDate", selected)
-                    //alert(document.getElementById("item_request_toDate").value + "-"  +document.getElementById("item_request_fromDate").value);
-                    var fromDate = new Date(document.getElementById("item_request_fromDate").value);
-                    var toDate = new Date(document.getElementById("item_request_toDate").value);
-                    var timeDiff = Math.abs(fromDate.getTime() - toDate.getTime())
-                    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                    alert(document.getElementById("item_request_price").value)
-                    alert(diffDays)
+                    calculatePrice();
                 }
             });
+
+
             //$("item_request_price").value
         });
+        function calculatePrice() {
+            var fromDate = new Date(document.getElementById("item_request_fromDate").value);
+            var toDate = new Date(document.getElementById("item_request_toDate").value);
+            var timeDiff = Math.abs(fromDate.getTime() - toDate.getTime())
+            var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            var totalPrice = document.getElementById("item_request_itemPrice").value;
+            if (diffDays>0) {
+                totalPrice = totalPrice * diffDays;
+            }
+            totalPrice = Math.round(totalPrice * 1e2)/1e2
+            document.getElementById("item_request_price").value = totalPrice;
+        }
     </script>
     Item Name:<%= @itemname %>
     <%= image_tag @itemimage.to_s, size: "300x300" %>
     Item Price:<%= @itemprice %>/day
+    <%= f.hidden_field :itemPrice, {:value => @itemprice} %>
+
+
     <br> <br>
     Item Unavailability Dates:
     <% if !@dates %> None <%else %>
