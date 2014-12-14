@@ -27,7 +27,7 @@
           <td><%= image_tag item.image_url.to_s, size: "100x100" %></td>
           <td><%= number_to_currency(item.price) %></td>
           <td><%= item.keywords %></td>
-          <td><%= item.category_id %></td>
+          <td><%= Category.find(item.category_id).category_name %></td>
           <!--<td><%= item.user_id %></td>-->
           <td><%= time_ago_in_words(item.created_at) %></td>
           <td>
@@ -38,6 +38,8 @@
                         :method => :delete,
                         :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                         :class => 'btn btn-xs btn-danger' %>
+            <%= link_to "renthistory&schedule", items_renthistory_path(item)      %>
+
           </td>
         </tr>
     <% end %>

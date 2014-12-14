@@ -1,9 +1,9 @@
 <div class="container">
   <%- model_class = ItemRequest -%>
   <div class="page-header">
-    <h1><!--%=t '.title', :default => model_class.model_name.human.pluralize.titleize %--></h1>
-    <h1> Pending Requests</h1>
+    <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
   </div>
+
   <table class="table table-striped">
     <thead>
     <tr>
@@ -16,7 +16,7 @@
       <th><%= model_class.human_attribute_name(:price) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+
     </tr>
     </thead>
     <tbody>
@@ -31,15 +31,6 @@
           <td><%= item_request.price %></td>
           <td><%= item_request.created_at %></td>
           <td><%= item_request.status %></td>
-          <td>
-            <!--%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_item_request_path(item_request), :class => 'btn btn-default btn-xs' %-->
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                        item_request_path(item_request),
-                        :method => :delete,
-                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                        :class => 'btn btn-xs btn-danger' %>
-          </td>
         </tr>
     <% end %>
     </tbody>

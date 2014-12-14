@@ -44,6 +44,15 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def renthistory
+    item=params[:format]
+
+    @item_requesthistory = ItemRequest.where('item_id==? AND status==? AND toDate>?',
+                                       item, "Accepted", Date.today )
+    @item_requestschedule = ItemRequest.where('item_id==? AND status==? AND fromDate<?',
+                                       item, "Accepted", Date.today )
+  end
+
   # POST /items
   # POST /items.json
   def create
@@ -52,7 +61,8 @@ class ItemsController < ApplicationController
    @item.user_id= current_user.id
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        @items = Item.where(:user_id => current_user.id)
+        format.html { render :index , notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
