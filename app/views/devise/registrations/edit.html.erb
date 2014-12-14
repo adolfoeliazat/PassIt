@@ -1,64 +1,88 @@
-<div class="container">
+<div class="container" style="margin-top: 15px;">
 <%#= bootstrap_devise_error_messages! %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h4><%= t('.title', :resource => resource_class.model_name.human , :default => "Edit #{resource_name.to_s.humanize}" ) %></h4>
+      <h4><%= t('.title', :resource => resource_class.model_name.human, :default => "Edit #{resource_name.to_s.humanize}") %></h4>
     </div>
     <div class="panel-body">
-      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put}) do |f| %>
+          <div class="row">
+            <div class="col-sm-6 col-md-push-6">
+              <div class="control-group form-group">
+                <%= f.label :avatar, :class => 'control-label' %>
+                <p style="text-align: center;">
+                  <% if current_user.avatar_url.present? %>
+                      <span style=""> <%= image_tag current_user.avatar_url.to_s, width: "100px", class: "img-circle" %></span>
+                  <% else %>
+                      <img src="https://lh5.googleusercontent.com/-XZTV9ous-Tw/AAAAAAAAAAI/AAAAAAAAAAA/hQkSiISMA0o/photo.jpg" class="img-circle" width="184px">
+                  <% end %></p>
+                <%= f.file_field :avatar, :class => 'btn', :style => "text-align: center;" %>
+                <%= error_span(@user[:avatar]) %>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-pull-6">
+              <div class="form-group">
+                <%= f.label :first_name %>
+                <%= f.text_field :first_name, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :last_name %>
+                <%= f.text_field :last_name, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :username %>
+                <%= f.text_field :username, class: "form-control" %>
+              </div>
+            </div>
+          </div>
 
-          <div class="form-group">
-            <%= f.label :first_name %>
-            <%= f.text_field :first_name, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :last_name %>
-            <%= f.text_field :last_name, class: "form-control" %>
-          </div>
-          <div class="control-group">
-            <%= f.label :avatar, :class => 'control-label' %>
-            <p><% if current_user.avatar_url.present? %>
-                  <span style=""> <%= image_tag current_user.avatar_url.to_s, width: "100px", class: "img-circle" %></span>
-              <% else %>
-                  <img src="https://lh5.googleusercontent.com/-XZTV9ous-Tw/AAAAAAAAAAI/AAAAAAAAAAA/hQkSiISMA0o/photo.jpg" class="img-circle" width="184px">
-              <% end %></p>
-            <%= f.file_field :avatar, :class => 'btn' %>
-            <%= error_span(@user[:avatar]) %>
-          </div>
+          <div class="row">
+            <div class="col-sm-6 col-md-push-6">
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :phone %>
+                <%= f.phone_field :phone, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :address %>
+                <%= f.text_field :address, class: "form-control" %>
+              </div>
+            </div>
 
-          <div class="form-group">
-            <%= f.label :username %>
-            <%= f.text_field :username, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :email %>
-            <%= f.email_field :email, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :phone %>
-            <%= f.phone_field :phone , class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :address %>
-            <%= f.text_field :address , class: "form-control" %>
-          </div>
-          <div class="form-group" style="text-align: center">
-            <%= image_tag ("https://maps.googleapis.com/maps/api/staticmap?size=300x300&maptype=roadmap
+            <div class="col-sm-6 col-md-pull-6">
+              <div class="form-group" style="text-align: center">
+                <%= image_tag ("https://maps.googleapis.com/maps/api/staticmap?size=300x220&maptype=roadmap
                             &markers=color:red%7Clabel:A%7C#{resource.latitude},#{resource.longitude}") %>
+              </div>
+            </div>
           </div>
+
+
+          <div class="row">
+            <div class="col-sm-6 col-md-push-6">
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <div class="form-group">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
           <div class="form-group">
-            <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it', :default => "leave blank if you don't want to change it") %>)</i><br />
+            <%= f.label :password %>
+            <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it', :default => "leave blank if you don't want to change it") %>
+              )</i><br/>
             <%= f.password_field :password, :autocomplete => "off", class: "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :password_confirmation %><br />
+            <%= f.label :password_confirmation %><br/>
             <%= f.password_field :password_confirmation, class: "form-control" %>
           </div>
+              </div>
+
+            <div class="col-sm-6 col-md-pull-6">
           <div class="form-group">
-            <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', :default => 'we need your current password to confirm your changes') %>)</i>
+            <%= f.label :current_password %>
+            <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', :default => 'we need your current password to confirm your changes') %>
+              )</i>
             <%= f.password_field :current_password, class: "form-control" %>
           </div>
           <div class="form-group">
@@ -66,8 +90,12 @@
           </div>
       <% end %>
       <div class="form-group">
-        <p><%= t('.unhappy', :default => 'Unhappy') %>? <%= link_to t('.cancel_my_account', :default => "Cancel my account"), registration_path(resource_name), :data => { :confirm => t('.are_you_sure', :default => "Are you sure?") }, :method => :delete %>.</p>
+        <p><%= t('.unhappy', :default => 'Unhappy') %>
+          ? <%= link_to t('.cancel_my_account', :default => "Cancel my account"), registration_path(resource_name), :data => {:confirm => t('.are_you_sure', :default => "Are you sure?")}, :method => :delete %>
+          .</p>
         <%= link_to "Back", :back %>
+        </div>
+      </div>
       </div>
     </div>
   </div>

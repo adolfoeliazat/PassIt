@@ -44,9 +44,9 @@
     <% end %>
     </tbody>
   </table>
-
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              dashboard_index_path, :class => 'btn btn-default btn-xs' %>
 
 </div>
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
-            dashboard_index_path, :class => 'btn btn-default btn-xs' %>
+

@@ -1,5 +1,5 @@
-<%= form_for @item_request, :html => { :class => "form-horizontal item_request" } do |f| %>
 
+<%= form_for @item_request, :html => { :class => "form-horizontal item_request" } do |f| %>
     <% if @item_request.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
@@ -15,12 +15,10 @@
     </div>
   <% end %>
 
-
     <!-- required plugins -->
     <script type="text/javascript" src="assets/javascripts/date.js"></script>
 
     <!-- jquery.datePicker.js -->
-
     <script>
         $(function() {
             $("#item_request_fromDate").datepicker({
@@ -58,13 +56,15 @@
             document.getElementById("item_request_price").value = totalPrice;
         }
     </script>
-    Item Name:<%= @itemname %>
-    <%= image_tag @itemimage.to_s, size: "300x300" %>
-    Item Price:<%= @itemprice %>/day
-    <%= f.hidden_field :itemPrice, {:value => @itemprice} %>
 
+<div class="row" style="padding: 15px;">
 
-    <br> <br>
+  <div class="col-sm-4 col-md-push-4" style="padding: 15px;">
+    <div class="control-group"><b style="font-size: x-large;"><%= @itemname %></b></div>
+    <div class="control-group"><b><%= @itemprice %>/day</b>
+    <%= f.hidden_field :itemPrice, {:value => @itemprice} %></div>
+
+    <div class="control-group">
     Item Unavailability Dates:
     <% if !@dates %> None <%else %>
     <% @dates.each do |item_request| %>
@@ -76,14 +76,17 @@
     <% end %>
     <%= f.hidden_field :item_id, {:value => @item_request.item_id} %>
     <%= f.hidden_field :user_id, {:value => @item_request.user_id} %>
-
-
+</div>
+</div>
+  <div class="col-sm-4 col-md-pull-4">
+    <div class="control-group" style="text-align: center;"><%= image_tag @itemimage.to_s, size: "120x120" %></div>
+  </div>
+  <div class="col-sm-4 col-md-pu11-4">
   <div class="control-group">
     <%= f.label :fromDate, :class => 'control-label' %>
     <div class="controls">
       <!--%= f.date_select :fromDate, :class => 'form-control' %-->
       <div id="fromdate">
-
       <%= f.text_field :fromDate, :class => 'form-control' %>
       </div>
     </div>
@@ -93,32 +96,38 @@
     <%= f.label :toDate, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :toDate, :class => 'form-control' %>
-
     </div>
     <%= error_span(@item_request[:toDate]) %>
   </div>
+    </div>
+  </div><!--row 1-->
+
+    <div class="row" style="padding: 0px 15px 0px 15px;">
+
+      <div class="col-sm-8 col-md-push-4" style="padding: 15px;">
   <div class="control-group">
     <b>Message to owner</b>
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :description, :class => 'form-control' %>
+      <%= f.text_area :description, :class => 'form-control', :style => "height: 80px;" %>
     </div>
     <%= error_span(@item_request[:description]) %>
   </div>
+        </div>
+      <div class="col-sm-4 col-md-pull-8" style="padding: 15px;">
   <div class="control-group">
-    <%= f.label :price, :class => 'control-label' %>
+    <%= f.label :price, :class => 'control-label' %>/day
     <div class="controls">
       <div id="price">
-        <%= f.text_field :price, :class => 'form-control' %>
+        <%= f.text_field :price, :class => 'form-control' %></div>
+      <div class="control-group" style="padding-top: 10px;">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                    items_search_path, :class => 'btn btn-default' %>
       </div>
     </div>
     <%= error_span(@item_request[:price]) %>
   </div>
-
-
-
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            items_search_path, :class => 'btn btn-default' %>
-
+        </div>
+</div><!--row-->
 <% end %>
