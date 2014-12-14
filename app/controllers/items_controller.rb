@@ -44,6 +44,15 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def renthistory
+    item=params[:format]
+
+    @item_requesthistory = ItemRequest.where('item_id==? AND status==? AND toDate>?',
+                                       item, "Accepted", Date.today )
+    @item_requestschedule = ItemRequest.where('item_id==? AND status==? AND fromDate<?',
+                                       item, "Accepted", Date.today )
+  end
+
   # POST /items
   # POST /items.json
   def create

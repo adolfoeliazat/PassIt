@@ -38,6 +38,8 @@
                         :method => :delete,
                         :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                         :class => 'btn btn-xs btn-danger' %>
+            <%= link_to "renthistory&schedule", items_renthistory_path(item)      %>
+
           </td>
         </tr>
     <% end %>

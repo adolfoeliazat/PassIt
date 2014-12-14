@@ -1,0 +1,73 @@
+<div class="container">
+  <%- model_class = ItemRequest -%>
+  <div class="page-header">
+    <h1>Future Schedule</h1>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:item_id) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:fromDate) %></th>
+      <th><%= model_class.human_attribute_name(:toDate) %></th>
+      <th><%= model_class.human_attribute_name(:price) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @item_requesthistory.each do |item_request| %>
+        <tr>
+          <td><%= link_to item_request.id, item_request_path(item_request) %></td>
+          <td><%= Item.find(item_request.item_id).name %></td>
+          <td><%= User.find(item_request.user_id).username %></td>
+          <td><%= item_request.fromDate %></td>
+          <td><%= item_request.toDate %></td>
+          <td><%= item_request.price %></td>
+          <td><%= item_request.created_at %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <%- model_class = ItemRequest -%>
+  <div class="page-header">
+    <h1>Past Rent History</h1>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:item_id) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:fromDate) %></th>
+      <th><%= model_class.human_attribute_name(:toDate) %></th>
+      <th><%= model_class.human_attribute_name(:price) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @item_requestschedule.each do |item_request| %>
+        <tr>
+          <td><%= link_to item_request.id, item_request_path(item_request) %></td>
+          <td><%= Item.find(item_request.item_id).name %></td>
+          <td><%= User.find(item_request.user_id).username %></td>
+          <td><%= item_request.fromDate %></td>
+          <td><%= item_request.toDate %></td>
+          <td><%= item_request.price %></td>
+          <td><%= item_request.created_at %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+
+</div>
+
+
+
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+            items_path, :class => 'btn btn-default btn-xs' %>

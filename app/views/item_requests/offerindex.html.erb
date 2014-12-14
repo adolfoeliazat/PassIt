@@ -30,7 +30,7 @@
     <% @item_requests.each do |item_request| %>
         <tr>
           <td><%= link_to item_request.id, item_request_path(item_request) %></td>
-          <td><%= Item.find(item_request.item_id).name %></td>
+          <td><%= item_request.item_id %></td>
           <td><%= User.find(item_request.user_id).username %></td>
           <td><%= item_request.fromDate %></td>
           <td><%= item_request.toDate %></td>

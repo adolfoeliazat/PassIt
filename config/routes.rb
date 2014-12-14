@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get 'pendingofferindex' => 'item_requests#pendingofferindex'
   get 'acceptofferindex' => 'item_requests#acceptofferindex'
   get 'rejectofferindex' => 'item_requests#rejectofferindex'
+  get 'items/renthistory' => 'items#renthistory'
+
 
   devise_for :users, :controllers => { :omniauth_callbacks => 'omniauth_callbacks' }
   resources :items
