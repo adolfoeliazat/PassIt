@@ -87,7 +87,7 @@ class ItemsController < ApplicationController
 
   def search
     cu = User.find(current_user.id)
-    @nu = User.near(cu.address, 100)
+    @nu = User.near(cu.address, 50)
     @item = Item.where('user_id IN (?) AND user_id != ?',  @nu.each do |t| t.id end, current_user.id)
 =begin
     @hash = Gmaps4rails.build_markers(User.where('id IN (?)', @item.each do |t| t.user_id end)) do |user, marker|
@@ -111,14 +111,17 @@ class ItemsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@item) do |i, marker|
       marker.lat i.user.latitude
       marker.lng i.user.longitude
-      marker.infowindow i.description+i.name
+      marker.infowindow i.name+i.description+"$"+i.price.to_s
+      #marker.title  i.name
+      #marker.sidebar "i'm the sidebar"
+      marker.json({ :id => i.id, :foo => "bar" })
     end
 
     @hash += Gmaps4rails.build_markers(User.find(current_user.id)) do |i, marker|
       marker.lat i.latitude
       marker.lng i.longitude
-      marker.infowindow i.address
-      marker.picture({"url" => 'http://icons.iconarchive.com/icons/graphicloads/100-flat/32/home-icon.png', "width" =>  32, "height" => 32})
+      marker.infowindow i.first_name+" "+i.last_name+"<br/>"+i.address
+      marker.picture({"url" => "/assets/hp.png", "width" =>  32, "height" => 44})
       #marker.picture({"url" => 'http://wiki.kerbalspaceprogram.com/w/images/thumb/1/14/Target_prograde.svg/32px-Target_prograde.svg.png', "width" =>  32, "height" => 32})
     end
 

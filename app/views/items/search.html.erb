@@ -5,24 +5,24 @@
 
 
   <div style='width: 100%;'>
-    <div id="map" style='width: 100%; height: 500px;'></div>
+    <div id="map" style='width: 100%; height: 300px;'></div>
   </div>
 
   <script type="text/javascript">
     //buildMap(<#%=raw @hash.to_json %>);
     circle1 = [{lng: <%= User.find(current_user.id).longitude %>, lat: <%= User.find(current_user.id).latitude %>, radius: 500 }];
-    circle_options1 = { strokeColor:"#29b464",strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#29b464',  fillOpacity: 0.35 };
-    circle2 = [{lng: <%= User.find(current_user.id).longitude %>, lat: <%= User.find(current_user.id).latitude %>, radius: 1000 }];
-    circle_options2 = { strokeColor:"#3b98d4",strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#3b98d4',  fillOpacity: 0.35 };
-    circle3 = [{lng: <%= User.find(current_user.id).longitude %>, lat: <%= User.find(current_user.id).latitude %>, radius: 1500 }];
-    circle_options3 = { strokeColor:"#ffd73c",strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#ffd73c',  fillOpacity: 0.35 };
-    circle4 = [{lng: <%= User.find(current_user.id).longitude %>, lat: <%= User.find(current_user.id).latitude %>, radius: 2500 }];
-    circle_options4 = { strokeColor:"#e64c3c",strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#e64c3c',  fillOpacity: 0.35 };
+    circle_options1 = { strokeColor:"#29b464",strokeOpacity: 0.5, strokeWeight: 2, fillColor: '#29b464',  fillOpacity: 0.2 };
+    circle2 = [{lng: <%= User.find(current_user.id).longitude %>, lat: <%= User.find(current_user.id).latitude %>, radius: 2000 }];
+    circle_options2 = { strokeColor:"#3b98d4",strokeOpacity: 0.5, strokeWeight: 2, fillColor: '#3b98d4',  fillOpacity: 0.2 };
+    circle3 = [{lng: <%= User.find(current_user.id).longitude %>, lat: <%= User.find(current_user.id).latitude %>, radius: 3500 }];
+    circle_options3 = { strokeColor:"#ffd73c",strokeOpacity: 0.5, strokeWeight: 2, fillColor: '#ffd73c',  fillOpacity: 0.2 };
+    circle4 = [{lng: <%= User.find(current_user.id).longitude %>, lat: <%= User.find(current_user.id).latitude %>, radius: 5000 }];
+    circle_options4 = { strokeColor:"#e64c3c",strokeOpacity: 0.5, strokeWeight: 2, fillColor: '#e64c3c',  fillOpacity: 0.2 };
       handler = Gmaps.build('Google');
       handler.buildMap({ provider: {minZoom: 11, maxZoom: 19}, internal: {id: 'map'}}, function(){
           markers = handler.addMarkers(<%=raw @hash.to_json %>);
           handler.bounds.extendWith(markers);
-          //handler.fitMapToBounds();
+          handler.fitMapToBounds();
           //handler.center.latitude = <#%= User.find(current_user.id).latitude %>;
           //handler.center.longitude = <#%= User.find(current_user.id).longitude %>;
           handler.map.centerOn({ lat: <%= User.find(current_user.id).latitude %>, lng: <%= User.find(current_user.id).longitude %> });
@@ -30,14 +30,7 @@
           handler.addCircles(circle3, circle_options3);
           handler.addCircles(circle2, circle_options2);
           handler.addCircles(circle1, circle_options1);
-
-
-
       });
-      //handler.center.latitude = <#%= User.find(current_user.id).latitude %>;
-      //handler.center.longitude = <#%= User.find(current_user.id).longitude %>;
-    //buildMap(<#%=raw @hash.to_json %>);
-
   </script>
 
 
@@ -67,7 +60,7 @@
 
 
 <div class="container" style="background-color:#ffffff">
-<div class="container container-pad" id="property-listings"><!--style="padding: 30px 15px; padding: 5px!important;">-->
+<!--<div class="container container-pad" id="property-listings"><!--style="padding: 30px 15px; padding: 5px!important;">-->
 
 <div class="row">
   <div class="col-md-12">
@@ -76,54 +69,48 @@
   </div>
 </div>
 
-<div class="row">
+<!--div class="row"-->
   <% @item.each do |i|%>
-<div class="col-sm-6" style="padding-left: 0px; padding-right: 5px; width: 48%;">
+<div class="" style="padding-left: 0px;">
 
-  <!-- Begin Listing: 609 W GRAVERS LN-->
+
   <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing" style="padding: 5px!important; margin-bottom: 20px!important; background-color: #fff!important; padding: 10px!important; border: 1px solid #ededed; -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,.2);
           box-shadow: 1px 1px 0 rgba(0,0,0,.2);">
     <div class="media" style="padding: 5px!important;">
-      <a class="pull-left" href="#" target="_parent" style="margin: 0; color: #03a1d1;
+      <a class="pull-left" href="#" target="_parent" style="padding: 15px;margin: 0; color: #03a1d1;
               text-decoration: none!important;">
        <!-- <img style="max-width: 180px;" alt="hassan" class="img-responsive" src=""> -->
-        <%= image_tag i.image_url.to_s, size: "90x90" %></a>
+        <%= image_tag i.image_url.to_s, size: "70x70" %></a>
 
       <div class="clearfix visible-sm"></div>
 
-      <div class="media-body fnt-smaller" style="padding: 10px; font-size: .9em;">
+      <div class="media-body fnt-smaller" style="padding: 15px; font-size: .9em;">
         <a href="#" target="_parent" style="color: #03a1d1;
                 text-decoration: none!important; margin: 0;"></a>
 
-        <h4 class="media-heading">
+        <h4 class="media-heading" style="margin: 0px 0px 0px 0px;font-size: x-large;">
           <a href="#" target="_parent" style="margin: 0; color: #03a1d1;
-                  text-decoration: none!important;"><%= link_to i.name.first(39), item_path(i) %><small class="pull-right"><%= number_to_currency(i.price)  %></small></a></h4>
+                  text-decoration: none!important;"><%= link_to i.name.first(39), item_path(i) %>
+            <small class="hidden-xs" style="font-size: small; padding: 5px 10px 5px 5px;"><%= i.keywords %></small>
+            <small class="pull-right" style="font-size: medium;padding: 5px 0px 5px 5px;"><%= number_to_currency(i.price)  %>
+              <small style="font-size: small;padding: 5px 0px 5px 0px;">/day</small></small><br/></a></h4>
+            <span class="hidden-xs pull-right fnt-smaller fnt-lighter fnt-arial" style="color: #bbb; font-size: .9em;"><%= i.category.category_name %></span>
 
 
-        <ul class="list-inline mrg-0 btm-mrg-10 clr-535353" style="color: #535353; padding: 0 10px 0 0; margin: 0!important; margin-bottom: 10px!important;">
-          <li style="padding: 0 10px 0 0;"><%= number_to_currency(i.price) %></li>
-          <li style="padding: 0 10px 0 0; list-style: none">|</li>
-          <li style="padding: 0 10px 0 0;"><%= i.keywords %></li>
-        </ul>
+<!--        <ul class="list-inline mrg-0 btm-mrg-10 clr-535353" style="color: #535353; padding: 0 10px 0 0; margin: 0!important; margin-bottom: 10px!important;">
+        </ul>-->
 
-        <p class="hidden-xs"><%= (sanitize strip_tags(i.description), tags: %w(p)).last((sanitize strip_tags(i.description), tags: %w(p)).length-18).first(124) %></p>
-        <span class="fnt-smaller fnt-lighter fnt-arial" style="color: #bbb; font-size: .9em;"><%= i.category.category_name %></span>
+        <p class="" style="font-size: medium; margin: 0px; padding: 0px;"><%= (sanitize strip_tags(i.description), tags: %w(p)).last((sanitize strip_tags(i.description), tags: %w(p)).length-18).first(124) %></p>
+
       </div>
     </div>
   </div><!-- End Listing-->
 </div>
   <% end %>
 <div class="col-sm-6" style="padding-left: 0px; padding-right: 5px; width: 48%;">
+<!--/div-->
 
-  <!-- Begin Listing: 1220-32 N HOWARD ST-->
-<!--  <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing" style="padding: 5px!important; margin-bottom: 20px!important; background-color: #fff!important; padding: 10px!important; border: 1px solid #ededed; -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,.2);
-          box-shadow: 1px 1px 0 rgba(0,0,0,.2);">
-      </div>
-    </div>
-  </div>&lt;!&ndash; End Listing&ndash;&gt;-->
-</div><!-- End Col -->
-
-</div><!-- End row -->
-</div><!-- End container -->
+<!--</div>-->
+</div>
 </div>
 
