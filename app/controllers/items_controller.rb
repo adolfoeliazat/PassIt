@@ -52,7 +52,8 @@ class ItemsController < ApplicationController
    @item.user_id= current_user.id
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        @items = Item.where(:user_id => current_user.id)
+        format.html { render :index , notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }

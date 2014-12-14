@@ -23,15 +23,15 @@
       <th><%= model_class.human_attribute_name(:price) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><!--%=t '.actions', :default => t("helpers.actions") %--></th>
+
     </tr>
     </thead>
     <tbody>
     <% @item_requests.each do |item_request| %>
         <tr>
           <td><%= link_to item_request.id, item_request_path(item_request) %></td>
-          <td><%= item_request.item_id %></td>
-          <td><%= item_request.user_id %></td>
+          <td><%= Item.find(item_request.item_id).name %></td>
+          <td><%= User.find(item_request.user_id).username %></td>
           <td><%= item_request.fromDate %></td>
           <td><%= item_request.toDate %></td>
           <td><%= item_request.description %></td>
