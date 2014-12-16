@@ -97,6 +97,8 @@ class ItemRequestsController < ApplicationController
     item_request = ItemRequest.find(params[:id])
     item_request.status = "Accepted"
     item_request.save
+    user=User.find(item_request.user_id)
+    UserMailer.notify_update(user).deliver
     redirect_to(userofferindex_path, notice: 'Item Offer Accepted.' )
  end
 
@@ -104,6 +106,8 @@ class ItemRequestsController < ApplicationController
     item_request = ItemRequest.find(params[:id])
     item_request.status = "Rejected"
     item_request.save
+    user=User.find(item_request.user_id)
+    UserMailer.notify_update(user).deliver
     #render :text => "#{@item_request.status}".html_safe
     redirect_to(userofferindex_path, notice: 'Item Offer Rejected.' )
  end
@@ -132,6 +136,8 @@ class ItemRequestsController < ApplicationController
 
     respond_to do |format|
       if @item_request.save
+        owner=item.user
+        UserMailer.notify_offer(owner).deliver
         format.html { redirect_to userrequestindex_path, notice: 'Please check your dashboard to see if
                         the offer was accepted by owner.' }
         #format.json { render :show, status: :created, location: @item }

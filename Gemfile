@@ -38,6 +38,7 @@ gem 'tinymce-rails'
 
 gem 'omniauth-facebook'
 
+gem "mail", "2.5.4"
 # gem 'rmagick'
 
 # Use ActiveModel has_secure_password
