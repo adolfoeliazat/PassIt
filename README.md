@@ -1,4 +1,4 @@
-![PassItpurpVerySmall.png](https://bitbucket.org/repo/onxqB9/images/3853414182-PassItpurpVerySmall.png)
+#PassIt
 
 ##The idea:##
 Do you have a drill or screwdriver at home? When was the last time you used it? You may use the drill once a year, and then it will be untouched for many years. The idea of our project is to make use of these equipment by making them available to be rented in your neighborhood. We will design a web application similar to http://streetbank.com
@@ -34,29 +34,25 @@ The PO supposed to register first  and choose post a product and enter the produ
 * The Platform:
 Ruby  v 2.1.2  on Rails  v 4.1.5
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
 ### How do I get set up? ###
 
 * Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+    * a working ruby version 2.1.2 recommended 
+    * Rails v4.1.5
+    * reguler setup process 
+    bundle install
+    rake db:migrate
+    rake db:seed
 
-### Contribution guidelines ###
+### Contribution ###
 
-* Writing tests
-* Code review
-* Other guidelines
+any ideas/improvements are welcome 
+give us an introductory and we will accept your pull requiste 
 
 ### Who do I talk to? ###
 
 * Repo owner or admin
-     * Ahmad Kaifi
+     * [Ahmad Kaifi](http://akaifi.github.io)
      * Hassan Althobaiti
      * Vijayalakshmi Selvamani
 
