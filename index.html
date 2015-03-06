@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Passit : WebApp to help neighbors share items between them">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Passit</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/akaifi/PassIt">View on GitHub</a>
+
+          <h1 id="project_title">Passit</h1>
+          <h2 id="project_tagline">WebApp to help neighbors share items between them</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/akaifi/PassIt/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/akaifi/PassIt/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="passit" class="anchor" href="#passit" aria-hidden="true"><span class="octicon octicon-link"></span></a>PassIt</h1>
+
+<h2>
+<a id="the-idea" class="anchor" href="#the-idea" aria-hidden="true"><span class="octicon octicon-link"></span></a>The idea:</h2>
+
+<p>Do you have a drill or screwdriver at home? When was the last time you used it? You may use the drill once a year, and then it will be untouched for many years. The idea of our project is to make use of these equipment by making them available to be rented in your neighborhood. We will design a web application similar to <a href="http://streetbank.com">http://streetbank.com</a></p>
+
+<h2>
+<a id="goal" class="anchor" href="#goal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Goal:</h2>
+
+<p>To design and implement a PASS IT web application that provides lending services of household items to the neighbourhood.</p>
+
+<h2>
+<a id="major-classes" class="anchor" href="#major-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Major Classes:</h2>
+
+<ul>
+<li>UserProfile (name, addressX, addressY)</li>
+<li>System Users From the authentication system (username, password)</li>
+<li>Product (name, pic, states, condition, payment Method(cash/paypal), availability/states)</li>
+<li>Transaction (Rent History, Payment Method)</li>
+<li>Reservation/RentQueue if more than one person want the same product </li>
+<li>Reviews  (comment_id, user_id, product_id, comment, rating, datetime)</li>
+</ul>
+
+<h2>
+<a id="use-cases" class="anchor" href="#use-cases" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use Cases:</h2>
+
+<h3>
+<a id="borrowersearcher-role" class="anchor" href="#borrowersearcher-role" aria-hidden="true"><span class="octicon octicon-link"></span></a>Borrower/Searcher role</h3>
+
+<p>If a Borrower wants a drill, he/she has to signin  the website.  After signing in, he/she can search the item that  wanted to be rent/borrow in 10m or so of the neighborhood 
+a list of available items shows on the map with more details about that item and who owns it the user choose one from Jack who lives across the street and fill in how many days and name the price.  An email is received if the offer is accepted.  If the payment method is paypal, the borrower pays and transaction is completed.</p>
+
+<h3>
+<a id="product-owner-role" class="anchor" href="#product-owner-role" aria-hidden="true"><span class="octicon octicon-link"></span></a>Product Owner Role</h3>
+
+<p>The PO supposed to register first  and choose post a product and enter the product details.  An email is received if an offer is made. Owner can accept or reject the offer or even make that order as a gift for 1st time.  When owner accepts an offer, and chooses payment method as PayPal, payment is sent to owner.</p>
+
+<h2>
+<a id="the-additional-features" class="anchor" href="#the-additional-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Additional Features:</h2>
+
+<ul>
+<li>Pagination</li>
+<li>Twitter-Bootstrap</li>
+<li>Google Maps Integration</li>
+<li>Mashups with local stores</li>
+<li>FAQ</li>
+<li>PayPal Integration</li>
+</ul>
+
+<h3>
+<a id="what-is-this-repository-for" class="anchor" href="#what-is-this-repository-for" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is this repository for?</h3>
+
+<ul>
+<li>The Platform:
+Ruby  v 2.1.2  on Rails  v 4.1.5</li>
+</ul>
+
+<h3>
+<a id="how-do-i-get-set-up" class="anchor" href="#how-do-i-get-set-up" aria-hidden="true"><span class="octicon octicon-link"></span></a>How do I get set up?</h3>
+
+<ul>
+<li>Summary of set up
+
+<ul>
+<li>a working ruby version 2.1.2 recommended </li>
+<li>Rails v4.1.5</li>
+<li>reguler setup process 
+bundle install
+rake db:migrate
+rake db:seed</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="contribution" class="anchor" href="#contribution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contribution</h3>
+
+<p>any ideas/improvements are welcome 
+give us an introductory and we will accept your pull requiste </p>
+
+<h3>
+<a id="who-do-i-talk-to" class="anchor" href="#who-do-i-talk-to" aria-hidden="true"><span class="octicon octicon-link"></span></a>Who do I talk to?</h3>
+
+<ul>
+<li>
+<p>Repo owner or admin</p>
+
+<ul>
+<li><a href="http://akaifi.github.io">Ahmad Kaifi</a></li>
+<li>Hassan Althobaiti</li>
+<li>Vijayalakshmi Selvamani</li>
+</ul>
+</li>
+<li><p>Other community or team contact
+not yet</p></li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Passit maintained by <a href="https://github.com/akaifi">akaifi</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-60448534-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
