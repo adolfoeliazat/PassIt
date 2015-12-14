@@ -53,3 +53,4 @@ gem "mail", "2.5.4"
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'codecov', :require => false, :group => :test
