@@ -1,7 +1,6 @@
 #PassIt
 
 
-![codecov.io](https://codecov.io/github/akaifi/PassIt/branch.svg?branch=master)
 
 
 
