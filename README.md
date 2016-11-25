@@ -1,5 +1,5 @@
 #PassIt
-
+[![ghit.me](https://ghit.me/badge.svg?repo=akaifi/PassIt)](https://ghit.me/repo/akaifi/PassIt)
 [push to start codeship test?]
 
 
